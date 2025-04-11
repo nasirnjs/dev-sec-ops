@@ -1,7 +1,7 @@
 version: '3'
 services:
   sonarqube:
-    image: sonarqube:community
+    image: sonarqube:25.4.0.105899-community
     hostname: sonarqube
     container_name: sonarqube
     depends_on:
@@ -11,7 +11,6 @@ services:
       SONAR_JDBC_USERNAME: ${SONAR_JDBC_USERNAME}
       SONAR_JDBC_PASSWORD: ${SONAR_JDBC_PASSWORD}
     volumes:
-      - ./sonar.properties:/opt/sonarqube/conf/sonar.properties
       - sonarqube_data:/opt/sonarqube/data
       - sonarqube_extensions:/opt/sonarqube/extensions
       - sonarqube_logs:/opt/sonarqube/logs
@@ -32,7 +31,6 @@ services:
     volumes:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
-      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     networks:
       - sonarnet
 

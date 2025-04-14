@@ -8,3 +8,5 @@ gitleaks/gitleaks-report.json
 # Ignore SonarQube volumes (if mounted locally)
 sonarqube/data/
 sonarqube/logs/
+
+*.gitignore

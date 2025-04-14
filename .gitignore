@@ -1,0 +1,10 @@
+# Ignore environment files
+.env
+*.env
+
+# Ignore Gitleaks report
+gitleaks/gitleaks-report.json
+
+# Ignore SonarQube volumes (if mounted locally)
+sonarqube/data/
+sonarqube/logs/

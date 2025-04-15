@@ -10,3 +10,4 @@ sonarqube/data/
 sonarqube/logs/
 
 *.gitignore
+note.md

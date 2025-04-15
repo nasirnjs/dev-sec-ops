@@ -11,3 +11,6 @@ sonarqube/logs/
 
 *.gitignore
 note.md
+
+jenkins_agent
+jenkins_agent.pub

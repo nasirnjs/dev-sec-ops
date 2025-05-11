@@ -118,8 +118,8 @@ Edit `/etc/vault.d/vault.hcl` on each Vault node to include the AWS KMS seal con
 seal "awskms" {
   region = "eu-north-1"
   kms_key_id = "arn:aws:kms:eu-north-1:605134426044:key/7fec9fd9-d04e-40ab-a92b-d73d3f3e2b9f"
-  access_key = "AKIAYZZGSR66ERZ7OHJT"
-  secret_key = "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"
+  access_key = "AKIAYZERZ7OHJT"
+  secret_key = "4rIU2zK5sgDUZfhZvn"
 }
 listener "tcp" {
   address          = "0.0.0.0:8200"

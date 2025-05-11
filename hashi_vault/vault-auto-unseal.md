@@ -107,7 +107,7 @@ Go to IAM → Users → vault → Add Inline Policy
 }
 ```
 
-## Step 5: Update Vault Configuration File
+## Step 5: Update Vault Configuration File of each node, First do Active/Master Node
 
 Edit `/etc/vault.d/vault.hcl` on each Vault node to include the AWS KMS seal configuration:
 
@@ -118,8 +118,8 @@ Edit `/etc/vault.d/vault.hcl` on each Vault node to include the AWS KMS seal con
 seal "awskms" {
   region = "eu-north-1"
   kms_key_id = "arn:aws:kms:eu-north-1:605134426044:key/7fec9fd9-d04e-40ab-a92b-d73d3f3e2b9f"
-  access_key = "AKIAYZERZ7OHJT"
-  secret_key = "4rIU2zK5sgDUZfhZvn"
+  access_key = "vault user access key"
+  secret_key = "vault user secret key"
 }
 listener "tcp" {
   address          = "0.0.0.0:8200"

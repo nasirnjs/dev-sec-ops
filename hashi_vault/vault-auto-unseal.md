@@ -10,7 +10,7 @@ This process enables automatic unsealing using AWS KMS, replacing manual Shamir 
     sudo cp -r /var/vault/raft /var/vault/raft.bak
     ```
 - View Raft Cluster Peers (from any node)
-  ```json
+  ```bash
     vault operator raft list-peers
 
     Node       Address               State       Voter
@@ -35,7 +35,7 @@ This process enables automatic unsealing using AWS KMS, replacing manual Shamir 
 ## Steps 3: Set KMS Key Policy
 Edit the KMS key policy to allow the Vault IAM user to manage and use the key
 
-```json
+```bash
 {
   "Id": "key-consolepolicy-3",
   "Version": "2012-10-17",
@@ -88,7 +88,7 @@ Edit the KMS key policy to allow the Vault IAM user to manage and use the key
 
 ## Steps 4: Attach IAM Policy to Vault User
 Go to IAM → Users → vault → Add Inline Policy
-```json
+```bash
 {
 	"Version": "2012-10-17",
 	"Statement": [
@@ -114,7 +114,7 @@ Edit `/etc/vault.d/vault.hcl` on each Vault node to include the AWS KMS seal con
 
 `sudo vim /etc/vault.d/vault.hcl`
 
-```json
+```bash
 seal "awskms" {
   region = "eu-north-1"
   kms_key_id = "arn:aws:kms:eu-north-1:605134426044:key/7fec9fd9-d04e-40ab-a92b-d73d3f3e2b9f"
@@ -148,11 +148,11 @@ disable_mlock = true
 
 `export VAULT_ADDR=http://127.0.0.1:8200`
 
-`vault operator unseal -migrate Z+v92NmIZRo2DrMhbXkyZfa/zsMdJ+6awR+/3qOHvfrj`
+`vault operator unseal -migrate Z+v92NmIZRo2dJ+6awR+/3qOHvfrj`
 
-`vault operator unseal -migrate lsTY7Pq7w044OGkrai/55CNTkql0PfGaaaSSY3FbmHPt`
+`vault operator unseal -migrate lsTY7Pq7w0ql0PfGaaaSSY3FbmHPt`
 
-`vault operator unseal -migrate 28TMSYh5mx0u3tMJLt/qnjF/D42jgyeKaB7pUdjhfopt`
+`vault operator unseal -migrate 28TMSYt//D42jgyeKaB7pUdjhfopt`
 
 ## Step 8: Verify Cluster State
 
@@ -166,7 +166,7 @@ disable_mlock = true
 - Restart the Vault service
 - Run vault operator unseal -migrate ... with 3 Shamir keys
 - Make sure `vault status`
-  ```json
+  ```bash
     Seal Type                awskms
     Recovery Seal Type       shamir
     Initialized              true
